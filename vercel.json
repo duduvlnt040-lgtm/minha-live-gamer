@@ -1,0 +1,35 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/index.mjs": {
+      "maxDuration": 60,
+      "includeFiles": "{server/**,data/games/**,public/**,supabase/**}"
+    }
+  },
+  "headers": [
+    {
+      "source": "/games/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cross-Origin-Resource-Policy", "value": "cross-origin" }
+      ]
+    },
+    {
+      "source": "/overlay/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.mjs" },
+    { "source": "/overlay/(.*)", "destination": "/api/index.mjs" },
+    { "source": "/audio/user/(.*)", "destination": "/api/index.mjs" },
+    { "source": "/audio/global/(.*)", "destination": "/api/index.mjs" },
+    { "source": "/game-previews/(.*)", "destination": "/api/index.mjs" },
+    { "source": "/((?!assets/|covers/|audio/|games/|api/|overlay/).*)", "destination": "/index.html" }
+  ]
+}

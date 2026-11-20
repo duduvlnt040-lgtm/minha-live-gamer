@@ -1,0 +1,26 @@
+*{box-sizing:border-box}
+body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;gap:16px;background:#031820;font-family:'Baloo 2',system-ui,sans-serif;color:#e8fbff;overflow:hidden}
+#stage{position:relative;height:min(100vh,calc(100vw*16/9));aspect-ratio:9/16;overflow:hidden;background:#1b9bbd}
+#stage canvas{display:block;width:100%;height:100%}
+#bubble{position:absolute;left:5%;right:5%;bottom:6%;background:#fffbe6;color:#16384a;border:5px solid #ffb800;border-radius:28px;padding:14px 20px;font-size:clamp(16px,4.2vw,40px);line-height:1.2;font-weight:700;opacity:0;transform:translateY(20px);transition:.25s;pointer-events:none}
+#bubble.on{opacity:1;transform:none}
+#bubble small{display:block;color:#d0701c;font-size:.62em}
+#region{position:absolute;top:11%;left:0;right:0;text-align:center;font-size:clamp(16px,4vw,38px);font-weight:700;text-shadow:0 3px 6px #0008;opacity:0;transition:.5s;pointer-events:none}#region.on{opacity:1}
+#goal{position:absolute;top:2.5%;left:5%;right:5%;font-size:clamp(12px,2.8vw,26px);font-weight:700;text-shadow:0 2px 4px #0006}
+#goal div{height:14px;background:#0a4a5e;border-radius:9px;margin-top:4px;overflow:hidden}
+#goal i{display:block;height:100%;width:0;background:#ffb800;transition:width .4s}
+#panel{width:340px;max-height:100vh;overflow:auto;padding:14px;background:#0a2a38;border-radius:16px;font-size:14px}
+#panel h3{margin:10px 0 4px;font-size:15px;color:#ffb800}
+#panel button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:6px 10px;margin:2px;background:#1b9bbd;color:#fff;cursor:pointer}
+#panel button.go{background:#2fae5b}#panel button.stop{background:#d1495b}
+#panel input[type=text],#panel input[type=number],#panel select{font:inherit;width:100%;padding:5px 8px;border-radius:8px;border:0;margin:2px 0}
+#panel label{display:flex;align-items:center;gap:8px;margin:3px 0}
+#panel input[type=range]{flex:1}
+#log{height:150px;overflow:auto;background:#051c26;border-radius:8px;padding:6px;font-size:12px}
+#status{font-weight:700}
+#gear{position:fixed;top:8px;right:8px;z-index:9;border:0;border-radius:50%;width:38px;height:38px;background:#0a2a38;color:#fff;font-size:20px;cursor:pointer}
+#panel,#gear{display:none!important}
+@media(max-width:900px){#panel{position:fixed;right:0;top:0;bottom:0;z-index:8;transform:translateX(105%);transition:.2s}#panel.open{transform:none}}
+@media(min-width:901px){#panel.hide{display:none}}
+#liveStatus{font-size:11px;color:#a7dce2;line-height:1.5;padding:5px 8px;border:1px solid #ffffff20;border-radius:6px;background:#0b1420}
+

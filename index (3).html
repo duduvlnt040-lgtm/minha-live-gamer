@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recife das Bolhas - Live 3D</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div id="goal"><span id="goalTxt">Meta de curtidas: 0/100</span><div><i id="goalBar"></i></div></div>
+  <div id="region"></div>
+  <div id="bubble"></div>
+</div>
+<button id="gear" title="Painel">⚙</button>
+<div id="panel">
+  <h3>Controle</h3>
+  <button class="go" id="bStart">Iniciar</button><button class="stop" id="bStop">Pausar</button>
+  <div>Status: <span id="status">desconectado (modo teste)</span></div>
+  <label><input type="checkbox" id="auto" checked> Respostas automáticas</label>
+  <label><input type="checkbox" id="voiceOn" checked> Voz ligada</label>
+  <label>Volume <input type="range" id="vol" min="0" max="1" step=".05" value="1"></label>
+  <label>Velocidade <input type="range" id="spd" min=".5" max="2" step=".1" value="1"></label>
+  <label>Tom da voz <input type="range" id="pitch" min=".5" max="2" step=".1" value="1.4"></label>
+  <label>Rapidez <input type="range" id="rate" min=".7" max="1.5" step=".05" value="1.05"></label>
+  <select id="voiceSel"></select>
+
+  <h3>Testar comentário</h3>
+  <input type="text" id="tUser" value="Eduardo">
+  <input type="text" id="tMsg" placeholder="Ex.: Oi, como você está?">
+  <button id="bMsg">Enviar comentário</button>
+
+  <h3>Testar presentes</h3>
+  <label>Quantidade <input type="number" id="tQty" value="1" min="1"></label>
+  <button data-g="Rosa,1">Rosa</button><button data-g="Dedo coração,5">Coração</button>
+  <button data-g="Rosquinha,30">Rosquinha</button><button data-g="Galáxia,1000">Galáxia</button>
+  <button data-g="Leão,29999">Leão</button>
+  <h3>Outros eventos</h3>
+  <button id="bFollow">Novo seguidor</button><button id="bLike">+20 curtidas</button>
+
+  <h3>Conexão TikTok LIVE</h3>
+  <div id="liveStatus">Aguardando conexão da plataforma…</div>
+
+  <h3>Registro</h3>
+  <div id="log"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+<script>
+window.LiveGame?.onEvent(event=>{
+  const user=event.nickname||event.username||'visitante';
+  if(event.type==='comment')BobLive.comentario(user,event.text||'');
+  else if(event.type==='gift')BobLive.presente(user,event.giftName||'presente',event.count||1,event.giftValue||1);
+  else if(event.type==='follow'||event.type==='member'||event.type==='share')BobLive.seguir(user);
+  else if(event.type==='like')BobLive.curtidas(event.count||1);
+});
+window.LiveGame?.onStatus(status=>{
+  const label=document.getElementById('liveStatus');
+  label.textContent=status.status==='connected'?'Conectado à LIVE @'+status.user:status.status==='connecting'?'Conectando à LIVE…':status.status==='error'?'Erro na conexão TikTok LIVE':'Desconectado. Conecte pelo menu Conectar TikTok.';
+});
+</script>
+</body>
+</html>

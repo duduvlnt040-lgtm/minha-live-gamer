@@ -1,0 +1,8 @@
+{
+  "name": "Recife das Bolhas",
+  "description": "Aventure-se pelo fundo do mar e reaja ao chat, presentes, curtidas e novos seguidores.",
+  "version": "1.0.0",
+  "category": "Aventura",
+  "entry": "index.html",
+  "image": "/game-covers/recife-das-bolhas.svg"
+}

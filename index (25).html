@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corrida das Torcidas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <header class="top">
+    <div class="title">CORRIDA DAS<br><span>TORCIDAS</span></div>
+    <div class="timer"><div class="timer-label">TEMPO</div><div id="timer">3:00</div></div>
+  </header>
+
+  <div class="finish-line"><span>🏁 CHEGADA 🏁</span></div>
+  <div id="track"></div>
+
+  <aside id="ranking">
+    <div class="rank-title">🏆 TOP TORCEDORES</div>
+    <ol id="top"></ol>
+  </aside>
+
+  <div id="feed"></div>
+
+  <footer class="howto">
+    <div class="howto-title">COMENTE O NÚMERO DO SEU TIME!</div>
+    <div id="choices"></div>
+    <div class="howto-tips">
+      <span>💬 comentar = corre</span>
+      <span>🚀 "turbo" = disparada</span>
+      <span>❤️ like = empurrão</span>
+      <span>🎁 presente = foguete</span>
+    </div>
+  </footer>
+
+  <div id="banner" class="banner hidden"></div>
+
+  <div id="result" class="result hidden">
+    <div class="result-card">
+      <div class="result-crown">👑</div>
+      <div id="result-emoji" class="result-emoji"></div>
+      <div id="result-title" class="result-title"></div>
+      <div id="result-mvp" class="result-mvp"></div>
+      <div id="result-next" class="result-next"></div>
+    </div>
+  </div>
+  <canvas id="confetti" width="1080" height="1920"></canvas>
+</div>
+<script type="module" src="game.js"></script>
+</body>
+</html>
