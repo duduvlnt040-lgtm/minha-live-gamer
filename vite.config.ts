@@ -1,0 +1,48 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 5173,
+    host: '127.0.0.1',
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
+      '/ws': {
+        target: 'ws://127.0.0.1:3000',
+        ws: true,
+      },
+      '/games': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
+      '/js': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
+      '/audio': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
+      '/overlay': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
+      '/covers': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
+      '/game-previews': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
+    },
+  },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
+});

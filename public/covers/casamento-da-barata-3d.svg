@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12081f" />
+      <stop offset="50%" stop-color="#240e3f" />
+      <stop offset="100%" stop-color="#09040e" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+    <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgGrad)" />
+
+  <!-- Background decorative sparkles -->
+  <circle cx="150" cy="120" r="3" fill="#fde047" opacity="0.6" />
+  <circle cx="680" cy="140" r="4" fill="#a855f7" opacity="0.8" />
+  <circle cx="720" cy="420" r="2.5" fill="#fde047" opacity="0.5" />
+  <circle cx="100" cy="480" r="3.5" fill="#c084fc" opacity="0.7" />
+
+  <!-- Neon ring light -->
+  <circle cx="400" cy="270" r="170" fill="none" stroke="url(#violetGrad)" stroke-width="4" opacity="0.4" filter="url(#glow)" />
+  <circle cx="400" cy="270" r="140" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.6" />
+
+  <!-- Cockroach groom & bride silhouettes with crowns -->
+  <!-- Groom (Left) -->
+  <g transform="translate(320, 270)">
+    <ellipse cx="0" cy="0" rx="35" ry="55" fill="#3b1d11" stroke="#f59e0b" stroke-width="2" />
+    <ellipse cx="0" cy="-60" rx="22" ry="20" fill="#29140b" />
+    <!-- Antennas -->
+    <path d="M -8 -75 Q -25 -120 -50 -130" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" />
+    <path d="M 8 -75 Q -5 -115 -10 -135" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Bow tie -->
+    <polygon points="-12,-45 0,-40 12,-45 0,-50" fill="#a855f7" />
+    <circle cx="0" cy="-45" r="3" fill="#fde047" />
+  </g>
+
+  <!-- Bride (Right) with Veil & Crown -->
+  <g transform="translate(480, 260)">
+    <!-- Veil glow -->
+    <path d="M 0 -70 Q 70 0 50 80 Q 0 90 -20 70 Z" fill="url(#violetGrad)" opacity="0.35" filter="url(#glow)" />
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="32" ry="50" fill="#451a1e" stroke="#ec4899" stroke-width="2" />
+    <ellipse cx="0" cy="-55" rx="20" ry="18" fill="#2d0f13" />
+    <!-- Antennas -->
+    <path d="M -8 -70 Q 5 -110 10 -130" stroke="#f472b6" stroke-width="3" fill="none" stroke-linecap="round" />
+    <path d="M 8 -70 Q 25 -115 50 -125" stroke="#f472b6" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Golden Crown -->
+    <path d="M -15 -74 L -18 -88 L -8 -80 L 0 -92 L 8 -80 L 18 -88 L 15 -74 Z" fill="url(#goldGrad)" filter="url(#glow)" />
+  </g>
+
+  <!-- Wedding rings in the middle -->
+  <g transform="translate(400, 260)">
+    <circle cx="-10" cy="0" r="22" fill="none" stroke="url(#goldGrad)" stroke-width="4" filter="url(#glow)" />
+    <circle cx="10" cy="5" r="22" fill="none" stroke="url(#goldGrad)" stroke-width="4" filter="url(#glow)" />
+    <polygon points="10,-17 7,-24 13,-24" fill="#67e8f9" filter="url(#glow)" />
+  </g>
+
+  <!-- Badge 3D -->
+  <rect x="350" y="380" width="100" height="32" rx="16" fill="#7c3aed" filter="url(#glow)" />
+  <text x="400" y="401" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="2">3D LIVE</text>
+
+  <!-- Title banner -->
+  <text x="400" y="465" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="34" fill="#ffffff" text-anchor="middle" letter-spacing="1">CASAMENTO DA BARATA</text>
+  <text x="400" y="505" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="16" fill="#c084fc" text-anchor="middle" letter-spacing="4">INTERATIVO TIKTOK LIVE</text>
+</svg>

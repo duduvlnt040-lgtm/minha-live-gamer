@@ -1,0 +1,8 @@
+Abra index.html no navegador (precisa de internet para carregar o Three.js).
+Eventos pelo seu app:
+  BobLive.comentario('Eduardo','oi')
+  BobLive.presente('Eduardo','Rosa',1,1)
+  BobLive.seguir('Eduardo')
+  BobLive.curtidas(10)
+Ou por WebSocket (JSON): {type:'chat',user,text} {type:'gift',user,gift,qty,value} {type:'follow',user} {type:'like',count}
+A voz precisa de um clique na tela para liberar o audio do navegador.

@@ -1,0 +1,22 @@
+# Variáveis de ambiente e segredos
+.env
+.env.local
+.env.*.local
+
+# Dependências e builds
+node_modules/
+dist/
+.vite/
+.vercel/
+
+# Bancos locais, uploads temporários e caches
+data/*.sqlite3
+data/*.sqlite3-shm
+data/*.sqlite3-wal
+data/incoming/
+data/previews/
+data/music/users/
+minha-live-game--main/
+*.log
+.DS_Store
+Thumbs.db
